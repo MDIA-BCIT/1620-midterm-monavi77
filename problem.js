@@ -12,4 +12,35 @@ CHALLENGE
 - If the password set is "forgot" or "reset", aside from "Access Granted", also log: "This password you set should not be used because it glitches the system".
 - If the password is less than 5 characters, log out "Your password is too short!".
 */
+function checkPassword(requiredPassword, inputPassword) {
+    if (inputPassword.length < 5) {
+        console.log("Your password is too short!");
+    }
+    else if (requiredPassword === inputPassword && requiredPassword === "forgot") {
+        console.log("Access Granted. This password you set should not be used because it glitches the system")
+    } else if (requiredPassword === inputPassword && inputPassword === "reset") {
+        console.log("Access Granted. This password you set should not be used because it glitches the system")
+        // I am not sure how to log aside, so I jus add them
+    } else if (inputPassword === "forgot") {
+        console.log("Here is a hint")
+    }
+    else if (inputPassword === "reset") {
+        console.log("Let's reset your account")
+    } else if (requiredPassword.length < 5 && requiredPassword === inputPassword) {
+        console.log("Access Granted! This password you set should not be used because it glitches the system");
 
+    } else if (requiredPassword === inputPassword) {
+        console.log("Access Granted!");
+    } else if (inputPassword.length < 5) {
+        // in the situation of requiredPassword > 5 I am not sure how to do a code
+        console.log("Your password is too short!");
+    } else {
+        console.log("Access Denied!");
+    }
+}
+checkPassword("forgot", "forgot")
+checkPassword("reset", "reset")
+checkPassword("hkihi", "hkihi")
+checkPassword("hhhui", "hki")
+checkPassword("hkihi", "hlihi")
+checkPassword("jj", "jj")
